@@ -27,7 +27,8 @@ class AppFixtures extends Fixture
                     ->setChambres($faker->randomDigitNotNull())
                     ->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-1 week', '+1 week')));
 
-            for ($j=0 ; $j <= mt_rand(2,5) ; $j++){
+            $rand = mt_rand(2,5);
+            for ($j=0 ; $j <= $rand ; $j++){
                 $image = new Image;
                 $image->setUrl('https://loremflickr.com/g/1000/350/building')
                     ->setLegende($faker->sentence())
