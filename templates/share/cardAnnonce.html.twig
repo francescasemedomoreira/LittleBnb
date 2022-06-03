@@ -1,0 +1,14 @@
+<div class="col-md-4">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            {{annonce.chambres}} chambres, <strong> {{annonce.prix}}&euro; / nuit </strong> 
+            <br> <small>Pas encore noté</small></br>
+        </div>
+        <img src="{{ annonce.imageCouverture }}" alt="appartement 1" style="width: 75%; display: block"></img>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title"> {{annonce.introduction}} </h4>
+        <p class="card-text"> {{annonce.description}} </p>
+        <a href="#" class="btn btn-secondary"> En savoir plus</a>
+    </div>
+</div>

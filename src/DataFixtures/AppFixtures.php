@@ -23,14 +23,14 @@ class AppFixtures extends Fixture
                     ->setPrix($faker->randomFloat(2))
                     ->setIntroduction($faker->paragraph(1, true))
                     ->setDescription($faker->paragraphs(mt_rand(2,5), true))
-                    ->setImageCouverture('https://loremflickr.com/g/1000/350/building')
+                    ->setImageCouverture('https://loremflickr.com/g/1000/350/building?random=' .$i)
                     ->setChambres($faker->randomDigitNotNull())
                     ->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-1 week', '+1 week')));
 
             $rand = mt_rand(2,5);
             for ($j=0 ; $j <= $rand ; $j++){
                 $image = new Image;
-                $image->setUrl('https://loremflickr.com/g/1000/350/building')
+                $image->setUrl('https://loremflickr.com/g/1000/350/building?random=' .$i)
                     ->setLegende($faker->sentence())
                     ->setAnnonce($annonce);
                 //persist = pré-sauvegarde

@@ -18,47 +18,9 @@
         
         <div class="row mt-5">
 
-            <div class="col-md-4">
-                <div class="card bg-light mb-3">
-                    <div class="card-header text-center">
-                        3 chambres, <strong>49&euro; / nuit </strong> <br> <small>Pas encore noté</small></br>
-                    </div>
-                    <img src="{{ asset('assets/img/appartement/app1.jpg') }}" alt="appartement 1" style="height: 200px; width: 100%; display: block"></img>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title"> Appartement de grand standing ! </h4>
-                    <p> Description de l'appartement........</p>
-                    <a href="#" class="btn btn-secondary"> En savoir plus</a>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card bg-light mb-3">
-                    <div class="card-header text-center">
-                        3 chambres, <strong>49&euro; / nuit </strong> <br> <small>Pas encore noté</small></br>
-                    </div>
-                    <img src="{{ asset('assets/img/appartement/app2.jpg') }}" alt="appartement 2" style="height: 200px; width: 100%; display: block"></img>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title"> Appartement de grand standing ! </h4>
-                    <p> Description de l'appartement........</p>
-                    <a href="#" class="btn btn-secondary"> En savoir plus</a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card bg-light mb-3">
-                    <div class="card-header text-center">
-                        3 chambres, <strong>49&euro; / nuit </strong> <br> <small>Pas encore noté</small></br>
-                    </div>
-                    <img src="{{ asset('assets/img/appartement/app3.jpg') }}" alt="appartement 3" style="height: 200px; width: 100%; display: block"></img>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title"> Appartement de grand standing ! </h4>
-                    <p> Description de l'appartement........</p>
-                    <a href="#" class="btn btn-secondary"> En savoir plus</a>
-                </div>
-            </div>
+        {% for annonce in annonces %}
+            {{ include('share/cardAnnonce.html.twig') }}
+        {% endfor %}
 
         </div>
 
