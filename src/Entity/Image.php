@@ -23,6 +23,9 @@ class Image
     #[ORM\JoinColumn(nullable: false)]
     private $annonce;
 
+    #[ORM\OneToOne(mappedBy: 'photo', cascade: ['persist', 'remove'])]
+    private ?Client $client = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,28 @@ class Image
     public function setAnnonce(?Annonce $annonce): self
     {
         $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($client === null && $this->client !== null) {
+            $this->client->setPhoto(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($client !== null && $client->getPhoto() !== $this) {
+            $client->setPhoto($this);
+        }
+
+        $this->client = $client;
 
         return $this;
     }
