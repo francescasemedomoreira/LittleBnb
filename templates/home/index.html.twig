@@ -1,8 +1,73 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Nos appartements disponibles {% endblock %}
+
 {% block body %}
     <div class="container">
-        <div class="jumbotron mt-3">
+        <h1 class="my-3">Voici les annonces de nos hôtes !</h1>
+        <div class="row">
+            {% for annonce in annonces %}
+                {{ include('share/cardAnnonce.html.twig') }}
+                {# <div class="cal-md-4">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-center">
+                            3 chambres, <strong>49€ / nuit </strong><br>
+                            <small> Pas encore noté</small>
+                        </div>
+            <h1 class="display-3">Bienvenue sur LittleBnB</h1>
+            <p class="lead"> Nous mettons en relation les voyageurs et les propriétaires
+                            qui veulent profiter d'opportunités et gagner de l'argent en 
+                            proposant leur bien à la location.</p>
+            <hr class="my-4"> </hr>
+            <p>Vous êtes voyageur et vous souhaitez trouver un logement pour votre prochain déplacement ?</p>
+            <p class="lead"> 
+                <a href="#" class="btn btn-primary btn-jg" role="button"> Voir les annonces </a>
+            </p>
+        </div>
+            
+        <h2>Nos appartements stars</h2>
+        
+        <div class="row mt-5"> #}
+
+        {# {% for annonce in annonces %}
+            {{ include('share/cardAnnonce.html.twig') }} #}
+        
+            {% endfor %}
+
+        <h2>Nos propriétaires stars</h2>
+        
+        <div class="row mt-5">
+
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title"> Tom Cruise </h4>
+                    <img src="{{ asset('assets/img/proprietaire/pp1.jpg') }}" alt="Propriétaire 1" style="width: 60%; display: block"></img>
+                    <p class="car-text"> Petit mot sur le proprio...</p>
+                    <a href="#" class="btn btn-success"> En savoir plus</a>
+                </div>
+            </div>
+            
+             <div class="col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title"> Rachel Evan Wood </h4>
+                    <img src="{{ asset('assets/img/proprietaire/pp2.jpg') }}" alt="Propriétaire 2" style="width: 60%; display: block"></img>
+                    <p class="car-text"> Petit mot sur le proprio...</p>
+                    <a href="#" class="btn btn-success"> En savoir plus</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h4 class="card-title"> Scarlette Johansson</h4>
+                    <img src="{{ asset('assets/img/proprietaire/pp3.jpg') }}" alt="Propriétaire 3" style="width: 60%; display: block"></img>
+                    <p class="car-text"> Petit mot sur le proprio...</p>
+                    <a href="#" class="btn btn-success"> En savoir plus</a>
+                </div>
+            </div>
+            
+        </div>
+    
+        {# <div class="jumbotron mt-3">
             <h1 class="display-3">Bienvenue sur LittleBnB</h1>
             <p class="lead"> Nous mettons en relation les voyageurs et les propriétaires
                             qui veulent profiter d'opportunités et gagner de l'argent en 
@@ -55,8 +120,8 @@
                 </div>
             </div>
             
+        </div> #}
         </div>
-        
     </div>
 {% endblock %}
 
