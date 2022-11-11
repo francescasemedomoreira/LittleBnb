@@ -4,7 +4,54 @@
     <div class="container">
         <h1> Créer une nouvelle annonce </h1>
         {{ form_start(form) }}
-        {{ form_row(form) }}
+        <div class="form-group">
+            {{ form_label (form.titre) }}
+            {{ form_widget (form.titre,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Titre de l\'annonce'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label (form.introduction) }}
+            {{ form_widget (form.introduction,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Présentation de l\'annonce'}}) }}
+        </div>
+
+         <div class="form-group">
+            {{ form_label (form.description) }}
+            {{ form_widget (form.description,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Déscription de l\'annonce'}}) }}
+        </div>
+
+         <div class="form-group">
+            {{ form_label (form.chambres) }}
+            {{ form_widget (form.chambres,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Nombre de chambres'}}) }}
+        </div>
+
+         <div class="form-group">
+            {{ form_label (form.prix) }}
+            {{ form_widget (form.prix,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Prix des chambres'}}) }}
+        </div>
+
+         <div class="form-group">
+            {{ form_label (form.imageCouverture) }}
+            {{ form_widget (form.imageCouverture,
+            { 'attr':
+            { 'class': 'form-control',
+            'placeholder': 'Image de l\'annonce'}}) }}
+        </div>
+        <br>
         <button class="submit btn-primary"> Créer </button>
         {{ form_end(form)}}
     </div>
