@@ -1,24 +1,29 @@
 <div class="col-md-4">
+    {% set url = path('annonce_read_one_by_slug', {'slug': annonce.slug}) %}
+
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
             {{annonce.chambres}} chambres, <strong> {{annonce.prix}}&euro; / nuit </strong> 
             <br> <small>Pas encore noté</small></br>
         </div>
-        <a href="{{ path('annonce_read_one_by_slug', {'slug': annonce.slug})}}">
+        
+        <a href="{{ url }}">
             <img src="{{ annonce.imageCouverture }}" alt="image" 
             style="height: 200px; width: 100%; display: block"></img>
         </a>
     </div>
+
     <div class="card-body">
         <h4 class="card-title"> 
-            <a href="{{ path ('annonce_read_one_by_slug', {'slug': annonce.slug})}}">
+            <a href="{{ url }}">
             {{ annonce.titre}}
             </a>
         </h4>
         <p class="card-text">
             {{annonce.introduction}} 
         </p>
-        <a href="{{ path('annonce_read_one_by_slug', {'slug': annonce.slug }) }}" 
+        <a href="{{ url }}" 
         class="btn btn-secondary"> En savoir plus !</a>
     </div>
+
 </div>
