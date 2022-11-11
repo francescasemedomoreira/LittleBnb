@@ -22,18 +22,15 @@ class AnnonceController extends AbstractController
     }
 
     #[Route('/annonce/read/one/{slug}', name: 'annonce_read_one_by_slug')]
-    public function readOneBySlug($slug, AnnonceRepository $annonceRepository): Response
+    public function readOneBySlug(Annonce $annonce): Response
     {
-        $annonce = $annonceRepository->findOneBySlug($slug);
         return $this->render('annonce/readOne.html.twig', [
             "annonce" => $annonce
         ]);
     }
 
-
     #[Route('/annonce/create', name: 'annonce_create')]
-    public function create(Request $request, ObjectManager $manager)
-    {
+    public function create(){
         $annonce = new Annonce();
         $form = $this->createFormBuilder($annonce)
             ->add(child: 'titre')
@@ -44,15 +41,33 @@ class AnnonceController extends AbstractController
             ->add(child: 'imageCouverture')
 
             ->getForm();
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-
-        }
+        
         return $this->render('annonce/create.html.twig', [
             'form'=>$form->createView()]);
     }
+
+    // public function create(Request $request, ObjectManager $manager)
+    // {
+    //     $annonce = new Annonce();
+    //     $form = $this->createFormBuilder($annonce)
+    //         ->add(child: 'titre')
+    //         ->add(child: 'introduction')
+    //         ->add(child: 'description')
+    //         ->add(child: 'chambres')
+    //         ->add(child: 'prix')
+    //         ->add(child: 'imageCouverture')
+
+    //         ->getForm();
+
+    //     $form->handleRequest($request);
+
+    //     if($form->isSubmitted() && $form->isValid()){
+
+    //     }
+
+    //     return $this->render('annonce/create.html.twig', [
+    //         'form'=>$form->createView()]);
+    // }
 
     #[Route('/annonce/read', name: 'annonce_read')]
     public function read()
