@@ -21,6 +21,16 @@ class AnnonceController extends AbstractController
         ]);
     }
 
+    #[Route('/annonce/read/one/{slug}', name: 'annonce_read_one_by_slug')]
+    public function readOneBySlug($slug, AnnonceRepository $annonceRepository): Response
+    {
+        $annonces = $annonceRepository->findOneBySlug($slug);
+        return $this->render('annonce/readOne.html.twig', [
+            "annonces" => $annonces
+        ]);
+    }
+
+
     #[Route('/annonce/create', name: 'annonce_create')]
     public function create(Request $request, ObjectManager $manager)
     {
