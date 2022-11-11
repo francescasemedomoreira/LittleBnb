@@ -4,11 +4,21 @@
             {{annonce.chambres}} chambres, <strong> {{annonce.prix}}&euro; / nuit </strong> 
             <br> <small>Pas encore noté</small></br>
         </div>
-        <img src="{{ annonce.imageCouverture }}" alt="appartement 1" style="height: 200px; width: 100%; display: block"></img>
+        <a href="{{ path('annonce_read_one_by_slug', {'slug': annonce.slug})}}">
+            <img src="{{ annonce.imageCouverture }}" alt="image" 
+            style="height: 200px; width: 100%; display: block"></img>
+        </a>
     </div>
     <div class="card-body">
-        <h4 class="card-title"> {{annonce.introduction}} </h4>
-        <p class="card-text"> {{annonce.description}} </p>
-        <a href="#" class="btn btn-secondary"> En savoir plus !</a>
+        <h4 class="card-title"> 
+            <a href="{{ path ('annonce_read_one_by_slug', {'slug': annonce.slug})}}">
+            {{ annonce.titre}}
+            </a>
+        </h4>
+        <p class="card-text">
+            {{annonce.introduction}} 
+        </p>
+        <a href="{{ path('annonce_read_one_by_slug', {'slug': annonce.slug }) }}" 
+        class="btn btn-secondary"> En savoir plus !</a>
     </div>
 </div>
