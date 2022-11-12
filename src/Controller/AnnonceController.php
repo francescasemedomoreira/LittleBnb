@@ -34,15 +34,6 @@ class AnnonceController extends AbstractController
     public function create(){
         $annonce = new Annonce();
         $form = $this->createForm(AnnonceType::class, $annonce);
-        // $form = $this->createFormBuilder($annonce)
-        //     ->add(child: 'titre')
-        //     ->add(child: 'introduction')
-        //     ->add(child: 'description')
-        //     ->add(child: 'chambres')
-        //     ->add(child: 'prix')
-        //     ->add(child: 'imageCouverture')
-
-        //     ->getForm();
         
         return $this->render('annonce/create.html.twig', [
             'form'=>$form->createView()]);

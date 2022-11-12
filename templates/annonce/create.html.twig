@@ -1,25 +1,19 @@
 {% extends "base.html.twig" %}
 {% block title %} - Création d'une annonce{% endblock %}
 
-{% form_theme form _self %}
+{# {% form_theme form _self %} #}
 
 {% block body %}
     <div class="container">
         <h1> Créer une nouvelle annonce </h1>
         {{ form_start(form) }}
-
-        {# <pre>
-            {{ dump(form.titre.vars)}}
-        </pre>
-        
-        {{ form_row (form.titre,
-            { 'attr': {'placeholder': 'Titre de l\'annonce'}}) }}
-
+        {{ form_row(form.titre,
+            { 'attr': { 'placeholder': 'Titre de l\'annonce'}}) }}
         {{ form_row (form.introduction,
-            { 'attr': {'placeholder': 'Présentation de l\'annonce'}}) }}
+            { 'attr': { 'placeholder': 'Présentation de l\'annonce'}}) }}
 
         {{ form_row (form.description,
-            { 'attr': {'placeholder': 'Déscription de l\'annonce'}}) }}
+            { 'attr': { 'placeholder': 'Déscription de l\'annonce'}}) }}
 
         {{ form_row (form.chambres,
             { 'attr': {'placeholder': 'Nombre de chambres'}}) }}
@@ -28,64 +22,17 @@
             { 'attr': {'placeholder': 'Prix des chambres'}}) }}
 
         {{ form_row (form.imageCouverture,
-            { 'attr': {'placeholder': 'Image de l\'annonce'}}) }}  #}
- 
-        <div class="form-group">
-            {{ form_label (form.titre) }}
-            {{ form_widget (form.titre,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Titre de l\'annonce'}}) }}
-        </div>
-
-        <div class="form-group">
-            {{ form_label (form.introduction) }}
-            {{ form_widget (form.introduction,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Présentation de l\'annonce'}}) }}
-        </div>
-
-         <div class="form-group">
-            {{ form_label (form.description) }}
-            {{ form_widget (form.description,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Déscription de l\'annonce'}}) }}
-        </div>
-
-         <div class="form-group">
-            {{ form_label (form.chambres) }}
-            {{ form_widget (form.chambres,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Nombre de chambres'}}) }}
-        </div>
-
-         <div class="form-group">
-            {{ form_label (form.prix) }}
-            {{ form_widget (form.prix,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Prix des chambres'}}) }}
-        </div>
-
-         <div class="form-group">
-            {{ form_label (form.imageCouverture) }}
-            {{ form_widget (form.imageCouverture,
-            { 'attr':
-            { 'class': 'form-control',
-            'placeholder': 'Image de l\'annonce'}}) }}
-        </div>
-
+            { 'attr': {'placeholder': 'Image de l\'annonce'}}) }} 
+        
         <br>
         <button class="submit btn-primary"> Créer </button>
-       
+        
         {{ form_end(form, {'render_rest': false})}}
     </div>
+
 {% endblock %} 
 
-{# {% block form_row %}
+{% block form_row %}
     <div class="form-group">
         {{ form_label (form)}}
         {{ form_widget (form)}}
@@ -96,8 +43,9 @@
     <div class="form-group">
         <input type="text" name="{{full_name}}"
             id="{{ id }}" class="form-control">
-            <input type="textarea" name="annonce[titre]"
-            id="annonce_titre" class="form-control">
-
+        {# <input type="textarea" name="{{full_name}}"
+            id="{{ id }}" class="form-control">
+        <input type="number" name="{{full_name}}"
+            id="{{ id }}" class="form-control"> #}
     </div>
-{% endblock %} #}
+{% endblock %}
