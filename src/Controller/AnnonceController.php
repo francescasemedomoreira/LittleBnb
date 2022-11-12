@@ -51,20 +51,24 @@ class AnnonceController extends AbstractController
     // public function create(Request $request, ObjectManager $manager)
     // {
     //     $annonce = new Annonce();
-    //     $form = $this->createFormBuilder($annonce)
-    //         ->add(child: 'titre')
-    //         ->add(child: 'introduction')
-    //         ->add(child: 'description')
-    //         ->add(child: 'chambres')
-    //         ->add(child: 'prix')
-    //         ->add(child: 'imageCouverture')
+    //     // $form = $this->createFormBuilder($annonce)
+    //     $form = $this->createForm(AnnonceType::class, $annonce);
+    //         // ->add(child: 'titre')
+    //         // ->add(child: 'introduction')
+    //         // ->add(child: 'description')
+    //         // ->add(child: 'chambres')
+    //         // ->add(child: 'prix')
+    //         // ->add(child: 'imageCouverture')
 
-    //         ->getForm();
+    //         // ->getForm();
 
     //     $form->handleRequest($request);
 
     //     if($form->isSubmitted() && $form->isValid()){
-
+    //         $manager->persist($annonce);
+    //         $manager->flush();
+    //         return $this->redirectToRoute('annonce_read_one_by_slug',
+    //         ['slug' => $annonce->getSlug()]);
     //     }
 
     //     return $this->render('annonce/create.html.twig', [
