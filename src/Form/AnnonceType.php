@@ -31,7 +31,7 @@ class AnnonceType extends AbstractType {
             Type::getConfiguration("Introduction", "Description globale de votre annonce."))
             ->add('description', 
             TextareaType::class, 
-            Type::getConfiguration("Déscription", "Donner le détail de vos prestations."))
+            Type::getConfiguration("Description", "Donner le détail de vos prestations."))
             ->add('chambres', 
             TextType::class, 
             Type::getConfiguration("Nombre de chambres", "Nombre de chambres disponibles."))
