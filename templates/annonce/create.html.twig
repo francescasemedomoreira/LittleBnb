@@ -7,7 +7,8 @@
     <div class="container">
         <h1> Créer une nouvelle annonce </h1>
         {{ form_start(form) }}
-        {{ form_row(form.titre,
+        {{ form_row(form)}}
+        {# {{ form_row(form.titre,
             { 'attr': { 'placeholder': 'Titre de l\'annonce'}}) }}
         {{ form_row (form.introduction,
             { 'attr': { 'placeholder': 'Présentation de l\'annonce'}}) }}
@@ -22,7 +23,7 @@
             { 'attr': {'placeholder': 'Prix des chambres'}}) }}
 
         {{ form_row (form.imageCouverture,
-            { 'attr': {'placeholder': 'Image de l\'annonce'}}) }} 
+            { 'attr': {'placeholder': 'Image de l\'annonce'}}) }}  #}
         
         <br>
         <button class="submit btn-primary"> Créer </button>
@@ -43,9 +44,9 @@
     <div class="form-group">
         <input type="text" name="{{full_name}}"
             id="{{ id }}" class="form-control">
-        {# <input type="textarea" name="{{full_name}}"
+        <input type="textarea" name="{{full_name}}"
             id="{{ id }}" class="form-control">
         <input type="number" name="{{full_name}}"
-            id="{{ id }}" class="form-control"> #}
+            id="{{ id }}" class="form-control">
     </div>
 {% endblock %}
