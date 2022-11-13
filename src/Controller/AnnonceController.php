@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Annonce;
 use App\Form\AnnonceType;
 use App\Repository\AnnonceRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,40 +32,41 @@ class AnnonceController extends AbstractController
     }
 
     #[Route('/annonce/create', name: 'annonce_create')]
-    public function create(){
-        $annonce = new Annonce();
-        $form = $this->createForm(AnnonceType::class, $annonce);
-        
-        return $this->render('annonce/create.html.twig', [
-            'form'=>$form->createView()]);
-    }
-
-    // public function create(Request $request, ObjectManager $manager)
-    // {
+    // public function create(){
     //     $annonce = new Annonce();
-    //     // $form = $this->createFormBuilder($annonce)
     //     $form = $this->createForm(AnnonceType::class, $annonce);
-    //         // ->add(child: 'titre')
-    //         // ->add(child: 'introduction')
-    //         // ->add(child: 'description')
-    //         // ->add(child: 'chambres')
-    //         // ->add(child: 'prix')
-    //         // ->add(child: 'imageCouverture')
-
-    //         // ->getForm();
-
-    //     $form->handleRequest($request);
-
-    //     if($form->isSubmitted() && $form->isValid()){
-    //         $manager->persist($annonce);
-    //         $manager->flush();
-    //         return $this->redirectToRoute('annonce_read_one_by_slug',
-    //         ['slug' => $annonce->getSlug()]);
-    //     }
-
+        
     //     return $this->render('annonce/create.html.twig', [
     //         'form'=>$form->createView()]);
     // }
+
+    // public function create(Request $request, ObjectManager $manager)
+    public function create(Request $request, EntityManagerInterface $manager)
+    {
+        $annonce = new Annonce();
+        // $form = $this->createFormBuilder($annonce)
+        $form = $this->createForm(AnnonceType::class, $annonce);
+            // ->add(child: 'titre')
+            // ->add(child: 'introduction')
+            // ->add(child: 'description')
+            // ->add(child: 'chambres')
+            // ->add(child: 'prix')
+            // ->add(child: 'imageCouverture')
+
+            // ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($annonce);
+            $manager->flush();
+            return $this->redirectToRoute('annonce_read_one_by_slug',
+            ['slug' => $annonce->getSlug()]);
+        }
+
+        return $this->render('annonce/create.html.twig', [
+            'form'=>$form->createView()]);
+    }
 
     #[Route('/annonce/read', name: 'annonce_read')]
     public function read()

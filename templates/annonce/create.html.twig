@@ -1,29 +1,11 @@
 {% extends "base.html.twig" %}
 {% block title %} - Création d'une annonce{% endblock %}
 
-{# {% form_theme form _self %} #}
-
 {% block body %}
     <div class="container">
         <h1> Créer une nouvelle annonce </h1>
         {{ form_start(form) }}
         {{ form_row(form)}}
-        {# {{ form_row(form.titre,
-            { 'attr': { 'placeholder': 'Titre de l\'annonce'}}) }}
-        {{ form_row (form.introduction,
-            { 'attr': { 'placeholder': 'Présentation de l\'annonce'}}) }}
-
-        {{ form_row (form.description,
-            { 'attr': { 'placeholder': 'Déscription de l\'annonce'}}) }}
-
-        {{ form_row (form.chambres,
-            { 'attr': {'placeholder': 'Nombre de chambres'}}) }}
-
-        {{ form_row (form.prix,
-            { 'attr': {'placeholder': 'Prix des chambres'}}) }}
-
-        {{ form_row (form.imageCouverture,
-            { 'attr': {'placeholder': 'Image de l\'annonce'}}) }}  #}
         
         <br>
         <button class="submit btn-primary"> Créer </button>
