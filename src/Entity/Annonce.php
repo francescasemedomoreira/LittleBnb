@@ -49,8 +49,8 @@ class Annonce
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
-    #[ORM\OneToMany(mappedBy: 'annonce', targetEntity: Image::class, orphanRemoval: true)]
-    private $images;
+    // #[ORM\OneToMany(mappedBy: 'annonce', targetEntity: Image::class, orphanRemoval: true)]
+    // private $images;
 
     public function __construct()
     {
@@ -158,33 +158,33 @@ class Annonce
         return $this;
     }
 
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
+    // /**
+    //  * @return Collection<int, Image>
+    //  */
+    // public function getImages(): Collection
+    // {
+    //     return $this->images;
+    // }
 
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setAnnonce($this);
-        }
+    // public function addImage(Image $image): self
+    // {
+    //     if (!$this->images->contains($image)) {
+    //         $this->images[] = $image;
+    //         $image->setAnnonce($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getAnnonce() === $this) {
-                $image->setAnnonce(null);
-            }
-        }
+    // public function removeImage(Image $image): self
+    // {
+    //     if ($this->images->removeElement($image)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($image->getAnnonce() === $this) {
+    //             $image->setAnnonce(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

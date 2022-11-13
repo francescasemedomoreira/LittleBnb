@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 
@@ -26,6 +27,9 @@ class AnnonceType extends AbstractType {
             ->add('imageCouverture', 
             UrlType::class, 
             Type::getConfiguration("Url de l'image", "Choisir une image qui donne envie."))
+            // ->add('image', 
+            // CollectionType::class, 
+            // ['entry_type'=> ImageType::class, 'allow_add'=>true])
             ->add('introduction', 
             TextType::class, 
             Type::getConfiguration("Introduction", "Description globale de votre annonce."))
